@@ -1,0 +1,80 @@
+﻿@import "mixins.less";
+
+//paths
+@base-img-url: "/assets/images";
+@resources-img-ui: "/WillCallResources/Images/UI";
+
+//color
+@black:#000;
+@blue_border:#0044ff;
+@blue_highlight:#017cfe;
+@blue_lighter: lighten(@blue_border,35%);
+@orange:#FF8933;
+@orange_light:lighten(@orange,47%);
+
+@red_youtube_flat:#ff3333;
+@white:#ffffff;
+@white_almost:#f1f1f1;
+@yellow_highlight:#ffff00;
+@green:#307F40;
+
+//shadow
+@glow-grey-sm:0 0 5px #999;
+@glow-grey-md:0 0 8px #999;
+@glow-grey-lg:0 0 20px #999;
+@glow-white-md:0 0 8px #fff;
+@glow-white-lg:0 0 20px #fff;
+@glow-yellow-sm:0 0 5px @yellow_highlight;
+@glow-yellow-md:0 0 8px @yellow_highlight;
+@glow-yellow-lg:0 0 20px @yellow_highlight;
+
+.drop-txt {
+    text-shadow:1px 1px 2px #444;
+}
+.drop-box {
+    .box-shadow(1px 1px 2px #444);
+}
+
+html {
+    height:100%;//force height on mobile
+}
+body,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+   font-family: Arial, sans-serif;
+}
+body {
+    position:relative;
+    height:auto;    
+    height:100%;//force height on mobile
+    min-height:100%;
+}
+
+//bootstrap overrides
+button, input, optgroup, select, textarea {
+    color:#222;
+}
+
+TABLE {
+    width: 100% !important;
+}
+
+#pagedef {
+    position:relative;
+    z-index:0;
+}
+
+.nowrap {
+    white-space: nowrap !important;
+}
+
+.fade-slow {
+   opacity: 0;
+   //http://cubic-bezier.com/#.51,.05,.34,.94
+   @trans:~'.51,.05,.34,.94';
+   @time:2s;
+   -webkit-transition: opacity @time cubic-bezier(@trans);
+      -moz-transition: opacity @time cubic-bezier(@trans);
+       -ms-transition: opacity @time cubic-bezier(@trans);
+        -o-transition: opacity @time cubic-bezier(@trans);
+           transition: opacity @time cubic-bezier(@trans);
+ }

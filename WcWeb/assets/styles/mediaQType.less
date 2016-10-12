@@ -1,0 +1,494 @@
+﻿
+//main>cycle>type>header>content>show
+@import "mediaQCycle.less";
+
+.brandname {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight:bold;
+    z-index:2;
+    color:lighten(@blue_border,48%);
+    text-align:right;
+    margin-right:10px;
+    float:right;
+    .font-size(3);
+    line-height:65px;//navbar is 60px height//check phone port and landscape
+    position:relative;
+    top:7px;    
+
+    .thewho, IMG {
+        display:none;
+    }
+
+    IMG {
+        position:relative;
+        top:-1px;
+        height: 38px;
+    }
+}
+
+.datepart-container {
+    position:relative;
+    display: block;
+    float: left;
+    width: 45px;
+    height: 50px;
+    text-align: center;
+    background-color: #000;    
+    font-weight: bold;    
+    color:#fff;
+    color:rgba(255,255,255,.9);
+    .border-radiuses(0, 4px, 0, 0);
+
+    SPAN {
+        display: block;
+    }
+
+    .month {                    
+        .font-size(1.8);
+        line-height:1.4;
+        text-transform:uppercase;
+    }
+
+    .day {
+        .font-size(2.7);
+        position:relative;
+        top:-12px;
+    }
+}
+
+.upcoming-container {
+    width: 66%;
+    .font-size(1.8);
+    line-height: 1;
+    font-weight: bold;
+    padding: 3px 0 3px 5px;
+
+    .status-container {
+        display: block;
+    }
+}
+
+#upcoming-loop {
+    & > DIV,
+    A, A:link, A:visited, A:hover, A:active, 
+    A:focus {
+        outline:none !important;
+        outline-style:none !important;
+        .border-radius(0);
+    }
+}
+
+.upcoming-container {
+    .status-container {
+        margin-top:5px;
+    }
+
+    .status-status {
+        display: none;
+    }
+}
+
+.status-alert {
+    display: inline-block;  
+    padding:2px 4px; 
+    border:solid #333 1px;    
+    font-weight:bold;
+    .status-alert-styling;
+    letter-spacing:-1px;
+}
+
+.mobile-info {
+
+    & > SPAN {
+        .border-radiuses(0, 0, 4px, 0);
+    }
+
+    .status-buy {
+        background-color: darken(@red_youtube_flat,5%);
+    }
+}
+
+//MOBILE CONTENT
+.m-container {
+}
+
+.m-inner {
+    background-color:darken(@blue_border,35%); 
+    font-weight:bold;
+    padding:.5em 1em;    
+    .font-size(1.3);
+    line-height:1.5em;
+    width:90%;
+    margin:1em auto .75em auto;
+    color:lighten(@blue_border,45%);
+}
+
+.m-times {    
+}
+
+.m-ages, 
+.m-pricing {
+    display:block;
+}
+
+.m-pricing {
+    margin-left:10px;
+    text-indent:-10px;
+}
+
+.m-social {
+    display: block;
+    vertical-align: top;
+    margin-top: 1em;
+    padding-left:.25em;
+    position:relative;
+    max-height:50px;
+    overflow-y:hidden;
+
+    DIV {
+        display: inline-block;
+        vertical-align: middle;
+        position:relative;
+        z-index:20000;
+        position: relative;
+
+        //reserve a defined space to avoid flashing content
+        &.facebk {
+            margin-top: -6px;
+            width: 49px;
+            overflow: hidden;
+        }
+        /* https://dev.twitter.com/docs/tweet-button/faq */
+        &.twtr {
+            width: 55px;
+            margin-left: 30px;
+        }
+
+        &.g-plus {
+            top:2px;
+            width: 50px; /*dimensions at https://developers.google.com/+/web/+1button/ */
+            margin-left: 30px;
+        }
+    }
+}
+
+// ***************************************************************************************************
+//anything above a single col
+@media (min-width: @col2-500) {
+    .brandname {
+        .font-size(3.5);
+        letter-spacing:-1px;
+        line-height:62px;
+        top:0;
+        margin-right:15px;
+        text-shadow:0 1px 0 #111, 0 2px 0 #222;
+
+        IMG {
+            display: inline-block;
+        }
+    }
+
+    .m-container {
+        display:none !important;
+    }
+
+    .section-header {
+        text-shadow:0 1px 0 darken(@blue_border,40%);
+    }
+    .datepart-container {
+        width: 40px; 
+        .border-radius(0);
+        
+        .month {                    
+            .font-size(1.5);
+            line-height:1.6;
+        }
+
+        .day {
+            .font-size(2.3);
+            top:-8px;
+        }    
+    }
+    .upcoming-container {    
+        width: 77%;
+        .font-size(1.5);
+        line-height: 1;
+        padding: 5px 0 3px 5px;
+    }
+
+    .mobile-info .status-buy {
+        .status-buy-styling;        
+    }
+
+    #admindisplaymodal,
+    #contactmodal,
+    #showmoremodal,
+    #event-container {
+        .section-header {//MAIN SECTION HEADER START
+            .font-size(3.8);
+            line-height: 82px;
+            font-weight:bold;
+            padding-left:10px;
+            height:92px;
+            .gradient-main-event;
+            border-color:#111;
+            border-width:5px;
+            .box-shadow(0 0 8px darken(@yellow_highlight,40%));
+            color:#000;
+            text-shadow:none;
+        }
+    }
+    
+    .upcoming-container,
+    .event-status { //shared in both locations
+        .status-status,
+        .status-future-sale,
+        .status-buy {
+            font-weight: bold;
+            .border-radius(2px);
+            text-align: center;            
+            display: inline-block;
+            padding:2px 4px;
+        }
+
+        .status-status {
+            .status-status-styling;
+        }
+
+        .status-future-sale {
+            .status-future-sale-styling;
+        }
+
+        .status-buy { //not displayed in upcoming-container
+            display:none;             
+        }
+
+        .status-alert {
+        }
+    }
+
+    .event-status { //main content only
+        position: absolute;
+        top: -1px;
+        right: 5px;
+        height: 100%;
+        max-width: 38%;
+        .font-size(2.4);
+
+        .status-status,
+        .status-future-sale,
+        .status-buy {
+            display: block;
+            width: 120px;
+            .vertical-align;
+            padding: 5px 10px;
+            border: solid #000 2px;
+            margin-top: 0;
+        }
+
+        .status-future-sale {
+            .font-size(1.5);
+            line-height: 1em;
+            letter-spacing: -1px;
+            .status-future-sale-styling;
+            border-width:1px;
+        }
+
+        .status-buy {
+            margin-top: -1px;
+            .font-size(2);
+            line-height: 1.5em;
+            z-index: 1024;
+            padding: 5px 7px;
+            letter-spacing: -1px;
+            .status-buy-styling;
+            text-decoration: none;
+        }
+    }
+}
+
+//addtl break points 2 cols
+@media (min-width: @col2-500) and (max-width: @col2-767) {
+    .brandname {
+        IMG {            
+            height: 38px;
+        }
+    }
+}
+
+@media (min-width: @col2-500) and (max-width: @col2-649) {
+
+    .event-status {        
+        .status-status,
+        .status-buy {
+            width: 110px;
+        }
+    }
+}
+
+@media (min-width: @col2-650) and (max-width: @col2-767) {
+    .brandname {
+        .thewho {
+            display: inline-block;
+        }
+    }
+    .upcoming-container {
+        width: 82%;
+    }
+
+    #admindisplaymodal,
+    #contactmodal,
+    #showmoremodal,
+    #event-container {
+        .section-header { //MAIN SECTION HEADER
+            .font-size(4.8);
+            line-height: 82px;
+        }
+    }
+}
+
+// ***************************************************************************************************
+// THREE THREE THREE THREE THREE THREE THREE 
+//3 cols
+@media (min-width: @col3-768) {
+    .brandname {
+        float: none;
+        width: 95%;
+        text-align: center;
+        padding-right: 0px;
+        .font-size(3.8);
+        line-height: 62px;//ipad! - 62
+        color: lighten(@blue_border,48%);
+        text-shadow: 0 1px 0 #000, 0 3px 0 #222;
+        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+            color-stop(0%, rgba(0,0,0,1)), 
+            color-stop(50%, rgba(0,0,0,.9)), 
+            color-stop(100%, rgba(0,0,0,.6)) );
+
+        .thewho {
+            display: inline-block;
+        }
+
+        IMG {
+            height: 45px;
+        }
+    }
+
+    .datepart-container {
+        
+        .month {                    
+            .font-size(1.5);
+            line-height:1.6;
+        }
+
+        .day {
+            .font-size(2.3);
+            top:-8px;
+        }    
+    }
+
+    .upcoming-container {    
+        width: 77%;
+        .font-size(1.5);
+        line-height: 1;
+        padding: 5px 0 3px 5px;
+    }
+
+    #admindisplaymodal,
+    #contactmodal,
+    #showmoremodal,
+    #event-container {
+        .section-header { //MAIN SECTION HEADER
+            .font-size(5.2);
+            line-height: 82px;       
+            padding-left:15px;     
+        }        
+    }
+}
+
+@media (min-width: @col3-768) and (max-width: @col3-824) {
+    .brandname {
+        .font-size(3);
+        line-height:64px;
+        padding-right:20px;
+    }
+
+    .datepart-container {        
+        .month {                    
+            .font-size(1.4);
+            line-height:1.6;
+        }
+
+        .day {
+            .font-size(2.2);
+            top:-5px;
+        }    
+    }
+    .upcoming-container {
+        width: 72%;
+        .font-size(1.4);
+        line-height: 1;
+        padding: 4px 0 3px 5px;
+    }
+
+    #admindisplaymodal,
+    #contactmodal,
+    #showmoremodal,
+    #event-container {
+        .section-header { //MAIN SECTION HEADER
+            .font-size(4.1);
+            line-height: 82px;
+        }        
+    }
+}
+
+@media (min-width: @col3-825) and (max-width: 930px) {
+    .brandname {
+        .font-size(3.3);
+        line-height:63px;
+        padding-right:10px;
+    }
+
+    #admindisplaymodal,
+    #contactmodal,
+    #showmoremodal,
+    #event-container {
+        .section-header { //MAIN SECTION HEADER
+            .font-size(4.2);
+            line-height: 82px;
+        }        
+    }
+}
+
+@media (min-width: 931px) and (max-width: @col3-1000) {
+    .brandname {
+        .font-size(3.5);
+        line-height:62px;
+    }
+
+    #admindisplaymodal,
+    #contactmodal,
+    #showmoremodal,
+    #event-container {
+        .section-header { //MAIN SECTION HEADER
+            .font-size(4.7);
+            line-height: 82px;
+        }        
+    }
+    .event-status {
+        .status-status {                 
+            .font-size(2.4);
+            line-height: 1.5em;
+        }
+    }
+}
+
+@media (min-width: @col3-1000) {
+    .event-status {
+        .status-status {
+            width: 130px;
+            .font-size(2.8);
+            line-height: 1.5em;
+        }
+    }
+}

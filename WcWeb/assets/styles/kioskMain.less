@@ -1,0 +1,188 @@
+﻿
+@import "kioskDefines.less";
+
+/*Target device notes...
+    
+    Panasonic viera 37" 1440x900 * on dev machine in chrome, 1440x835
+    /kiosk/[all|fox|bt|z2|calendar]?[location-class]&test
+    ex: http://foxtheatre.com/kiosk/fox?balcony&test
+
+    test modes shuffles through images and refreshes the page more quickly   
+
+    To setup android dongle
+    * factory reset
+    * install chrome
+    * open chrome and establish bookmarks for kiosk and test - save each of these to a home screen
+    * launch the kiosk from the homescreen icons
+*/
+
+body {
+}
+
+#cycle-kiosk {
+    position: relative;
+    height:100%;
+    cursor:none;
+}
+
+#kioskcarousel {
+    cursor:none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    z-index: 1;
+
+    .kiosk-viewport {
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+        z-index:2;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.kiosk-admin-viewport {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 1;
+    
+    //because we know that the thumbnails being used (max) are 2048 wide
+    img {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        top: 0 !important; //50% of full page    
+    }
+}
+
+.kiosktext {
+    position: absolute;
+    z-index: 100;
+    font-family: "Exo", sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    max-width:80%;
+
+    //default text color
+    color: #ffffff;    
+    text-shadow: 0 0 16px #111;
+    
+    //sizing and spacing
+    padding: .5em 1em;
+    font-size:3.8em;
+    line-height: 1.2em;
+
+    font-weight: bold;
+    top:auto;
+    right:auto;        
+    bottom:0;
+    left:0;
+
+    .kiosk-heads {            
+        font-size:1.9em;
+        line-height: 1em;
+    }
+
+    /*********************************************/
+    /* define locations here */
+    /*********************************************/
+
+    /* ?balcony */
+    .balcony & {
+
+        .kiosk-heads {            
+        }
+
+        &.kiosk-lighttext {
+        }
+
+        &.kiosk-darktext {
+        }
+    }
+
+    /*&.kiosk-lighttext {
+    }*/
+
+    &.kiosk-darktext {
+        color: #000;
+        text-shadow: 0 0 16px #ccc;
+    }
+
+    //default
+    &.kiosk-posbl {
+        top:auto;
+        right:auto;        
+        bottom:0;
+        left:0;
+        text-align: left;
+    }
+
+    &.kiosk-postl {
+        top:0;
+        right:auto;        
+        bottom:auto;
+        left:0;
+        text-align: left;
+    }
+
+    &.kiosk-postr {
+        top:0;
+        right:0;        
+        bottom:auto;
+        left:auto;
+        text-align: right;
+    }
+
+    &.kiosk-posbr {
+        top:auto;
+        right:0;        
+        bottom:0;
+        left:auto;
+        text-align: right;
+    }
+
+    &.kiosk-postc {
+        top:0;
+        right:auto;
+        bottom:auto;
+        left:10%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &.kiosk-posmc {
+        top:33%;
+        right:auto;
+        bottom:auto;
+        left:10%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &.kiosk-posbc {
+        top:auto;
+        right:auto;
+        bottom:0;
+        left:10%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.kiosk-admin-viewport {
+    border: solid #444 5px;
+    width: 620px;
+    height: 350px; // width/1.77(ratio)  or roughly 1080/2.67 1080/600 = 1.8 
+    
+    .kiosktext {
+        font-size: 1.3em;
+        padding: .45em .75em;
+    }
+}

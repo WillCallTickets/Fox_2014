@@ -1,0 +1,81 @@
+﻿@import "mixins.less";
+
+//paths
+@base-img-url: "/assets/images";
+@resources-img-ui: "/WillCallResources/Images/UI";
+
+//bootstrap colors
+@bs_info:#5bc0de;
+@bs_default:#ccc;
+@bs_primary:#428bca;
+@bs_success:#5cb85c;
+@bs_warning :#f0ad4e;
+@bs_danger :#d9534f;
+@dark_blue:#354F99;
+
+//.pagination-dark-blue,
+.badge-dark-blue,
+.btn-dark-blue {
+    background-color: @dark_blue;
+    color: #fff;
+
+    &:hover {
+        background-color: lighten(@dark_blue,10%);
+        color:#eee;
+    }
+}
+
+//color
+@black:#000;
+@blue_border:#0044ff;
+@blue_highlight:#017cfe;
+@blue_lighter: lighten(@blue_border,35%);
+@orange:#FF8933;//#ff8400;FF8933
+@orange_light:lighten(@orange,47%);
+
+@red_youtube_flat:#ff3333;
+@white:#ffffff;
+@white_almost:#f1f1f1;
+@yellow_highlight:#ffff00;
+@green:#307F40;
+
+//shadow
+@glow-grey-sm:0 0 5px #999;
+@glow-grey-md:0 0 8px #999;
+@glow-grey-lg:0 0 20px #999;
+@glow-white-md:0 0 8px #fff;
+@glow-white-lg:0 0 20px #fff;
+@glow-yellow-sm:0 0 5px @yellow_highlight;
+@glow-yellow-md:0 0 8px @yellow_highlight;
+@glow-yellow-lg:0 0 20px @yellow_highlight;
+
+.drop-txt {
+    text-shadow:1px 1px 2px #444;
+}
+.drop-box {
+    .box-shadow(1px 1px 2px #444);
+}
+
+.fade-slow {
+   opacity: 0;
+   //http://cubic-bezier.com/#.51,.05,.34,.94
+   @trans:~'.51,.05,.34,.94';
+   @time:1s;
+   -webkit-transition: opacity @time cubic-bezier(@trans);
+      -moz-transition: opacity @time cubic-bezier(@trans);
+       -ms-transition: opacity @time cubic-bezier(@trans);
+        -o-transition: opacity @time cubic-bezier(@trans);
+           transition: opacity @time cubic-bezier(@trans);
+ }
+
+.fade-med {
+   opacity: 0;
+   //http://cubic-bezier.com/#.51,.05,.34,.94
+   @trans:~'.51,.05,.34,.94';
+   @time:0.6s;
+   -webkit-transition: opacity @time cubic-bezier(@trans);
+      -moz-transition: opacity @time cubic-bezier(@trans);
+       -ms-transition: opacity @time cubic-bezier(@trans);
+        -o-transition: opacity @time cubic-bezier(@trans);
+           transition: opacity @time cubic-bezier(@trans);
+ }

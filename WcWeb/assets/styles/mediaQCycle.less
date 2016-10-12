@@ -1,0 +1,190 @@
+﻿
+//main>cycle>type>header>content>show
+@import "main.less";
+
+#carousel-container {
+    margin: 1em auto 1.5em auto;
+    padding:0;
+}
+#cycle-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    overflow:hidden;
+}
+#cycle-border {
+    border: solid #f9f9f9 2px;
+    width: 100%;
+    padding: 2px;
+}
+#cycle2carousel {
+    width: 100%;
+    height:auto;
+
+    > DIV {
+        display: none; //avoid FOUC
+        border: none;
+        outline: none;
+        margin:0;
+
+        &.first {
+            display: block;
+        }
+    }
+
+    A {
+        border: none;
+        outline: none;
+        display: block;
+    }
+
+    IMG {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height:90px;
+    }
+}
+
+/*keep here if we decide to reinstate badge advertising*/
+/*.master-badge + #cycle-wrapper {
+    margin-left:60px;
+}
+
+#cycle-wrapper {//change for laminate
+    width: 80% !important;
+}
+.master-badge {
+    //border: solid white 1px;
+    position: absolute;
+    z-index: 960;/*below nav@1024
+    top:-20px;
+    left:-10px;
+
+    A {
+        border:none !important;
+        outline: none !important;
+        display:block;
+        width: 80px;
+        height: 78px;
+        background-image: url('/WillCallResources/Images/Badges/wereMoving.png');
+        background-size: 80px 78px;
+    }
+}*/
+
+@media (min-width: @col2-500) {
+    #carousel-container {
+        margin: 1.5em auto 2em auto;
+    } 
+
+    #cycle-wrapper {
+        width: 90%;
+        border:solid #ccc 1px;
+        .box-shadow(0 0 8px #666);
+    }
+
+    #cycle-border {
+        border: solid #f9f9f9 3px;
+        .inner-shadow (0, 0, 0, 1px, .2);
+        padding: 4px;
+        min-height:70px;
+    }
+
+    #cycle2carousel {                
+        //curls
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: -10;
+            bottom: 5px;
+            left: 0px;
+            width: 51%;
+            height: 10px;
+            box-shadow: 0 20px 4px rgba(0, 0, 0, 0.6);
+            .transform(rotate(-1.0deg) skew(-8deg));
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: -10;
+            bottom: 5px; //less moves down
+            right: 0px;
+            width: 51%;
+            height: 10px; //extends upwards at higher vals - look towards middle for overlap
+            box-shadow: 0 20px 4px rgba(0, 0, 0, 0.6);
+            .transform(rotate(1.0deg) skew(8deg));
+        }
+    }
+
+    /* keep for badge adverts*/
+    /*.master-badge + #cycle-wrapper {
+        margin-left:100px;
+    }
+
+    #cycle-wrapper {//change for laminate
+        width: 80% !important;
+    }
+
+    .master-badge {
+        top:-18px;
+        left:5px;
+
+        A {
+            width: 110px;
+            height: 105px;
+            background-size: 110px 105px;
+        }
+    }*/
+}
+
+
+@media (min-width: @col3-768) {
+
+    #carousel-container {
+        margin: 2.2em auto 3.7em auto;
+    }
+
+    #cycle-wrapper {
+        width: 85%;
+        max-width: 799px;
+    }
+
+    #cycle-border {
+        border: solid #f9f9f9 5px;
+        padding: 5px;
+        min-height:100px;
+    }
+
+    #cycle2carousel {
+        //curls
+        &:before {
+            bottom: 4px;
+            left: -3px;
+            .transform(rotate(-1.3deg) skew(-8deg));
+            box-shadow: 0 20px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        &:after {
+            bottom: 4px; //less moves down
+            right: -3px;
+            .transform(rotate(1.3deg) skew(8deg));
+            box-shadow: 0 20px 6px rgba(0, 0, 0, 0.6);
+        }
+    }
+
+    /*keep for badge adverts*/
+    /*.master-badge + #cycle-wrapper {
+        margin-left:155px;
+    }
+
+    .master-badge {
+        top:-22px;
+        left:25px;
+
+        A {
+            width: 160px;
+            height: 155px;
+            background-size: 160px 155px;
+        }
+    }*/    
+}

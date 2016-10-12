@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>Spring.Social.Twitter</id>
+    <version>2.0.0-M1</version>
+    <title>Spring.Social.Twitter</title>
+    <authors>SpringSource</authors>
+    <owners>SpringSource</owners>
+    <licenseUrl>http://www.springframework.net/license.html</licenseUrl>
+    <projectUrl>http://www.springframework.net/social-twitter/</projectUrl>
+    <iconUrl>http://springframework.net/images/SpringSource_Leaves32x32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Spring.NET Social Framework extension for Twitter</description>
+    <summary>Allows you to connect your applications with Twitter.</summary>
+    <language>en-US</language>
+    <tags>Spring Social REST JSON HTTP Twitter</tags>
+    <dependencies>
+      <dependency id="Spring.Rest" version="[1.1.1]" />
+      <dependency id="Spring.Social.Core" version="[1.0.1]" />
+    </dependencies>
+    <references>
+      <reference file="Spring.Social.Twitter.dll" />
+    </references>
+  </metadata>
+</package>

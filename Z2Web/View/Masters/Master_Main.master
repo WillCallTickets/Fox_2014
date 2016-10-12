@@ -1,0 +1,319 @@
+<%@ Master Language="C#" AutoEventWireup="false" CodeFile="Master_Main.master.cs" Inherits="z2Main.Masters.Master_Main" enableViewState="false" %>
+<%@ Register src="~/View/Partials/Banners.ascx" tagname="Banners" tagprefix="uc1" %>
+
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head id="Head1" runat="server" prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    
+    <title>Z2 Entertainment - Boulder, CO</title>
+    
+    <link href='http://local.z2.com/fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        
+    <link rel="stylesheet" href="/assets/styles/vendor/bootstrap-v3.2.0/bootstrap.min.css" media="screen">    
+    <link rel="stylesheet" href="/assets/styles/main.less">
+    <link rel="stylesheet" href="/assets/styles/bootstrap-no-response.css">
+    
+
+    <!--
+        Windows Phone 8 and Internet Explorer 10    
+            Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't properly apply the 
+        media queries in Bootstrap's CSS. To address this, you can optionally include the following CSS and JavaScript to work 
+        around this problem until Microsoft issues a fix.
+        -->
+    <style type="text/css">
+        @-webkit-viewport {
+            width: device-width;
+        }
+
+        @-moz-viewport {
+            width: device-width;
+        }
+
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        @-o-viewport {
+            width: device-width;
+        }
+
+        @viewport {
+            width: device-width;
+        }
+    </style>
+    <script type="text/javascript">
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style")
+            msViewportStyle.appendChild(
+              document.createTextNode(
+                "@-ms-viewport{width:auto!important}"
+              )
+            )
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
+        }
+    </script>
+    
+    <!-- analytic content -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        if (window.location.hostname.indexOf('local') != -1)
+            ga('create', 'UA-XXXX-Y', {'cookieDomain': 'none'});
+        else
+            ga('create', 'UA-53424680-1', 'z2ent.com');
+
+        ga('require', 'displayfeatures');
+
+        https://support.google.com/analytics/answer/2558867?hl=en
+        ga('require', 'linkid', 'linkid.js');
+
+        
+        //ga('send', 'pageview');//if using address - pageviews sent in address()
+
+    </script>
+    
+</head>
+<body itemscope itemtype="http://schema.org/Organization" class="default">
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=172208982825393";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div id="site-bg"></div>
+
+    <div id="pagedef">
+                
+        <asp:Literal ID="litGglVenue" runat="server" EnableViewState="false" />
+
+        <form id="mainform" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnableHistory="true" EnableSecureHistoryState="false">
+            </asp:ScriptManager>            
+            <!-- avoid index of action not found -->
+            <script type="text/javascript">
+                Sys._Application.prototype._setState = function() {}
+            </script>
+            
+            <% if(Ztx.Banners != null && Ztx.Banners.Count > 0) { %>
+            <div id="carousel-container" class="container z2-container">
+                <uc1:Banners ID="Banners1" runat="server" />
+            </div>
+            <% } %>
+
+            <div id="jumbo-tron" class="container jumbotron">
+
+                <div id="carousel-tron" class="carousel fade">
+                    <div class="carousel-nav">
+                        <div id="logo-tron"></div>
+                        <!-- wrapper for navigation -->
+                        <ul class="nav">
+                            <li><a href="/newsletter">Newsletter</a></li>                                                    
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/privacy">Privacy</a></li>
+                            <li><a href="/about">About</a></li>    
+                        </ul>
+                    </div>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-wrapper">
+                        <div class="carousel-inner">
+                            <div class="item active" data-view="newsletter"></div>
+                            <div class="item" data-view="about"></div>
+                            <div class="item" data-view="contact"></div>
+                            <div class="item" data-view="privacy"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main-content" class="container z2-container">
+                <div id="mlr-example" class="fade fade-slow active in">
+                    <h2>Check out our new look!</h2>     
+                    <div>
+                        <img src="/assets/images/mailtop.jpg" width="300" style="display:block;margin:0 auto;" />
+                    </div>
+                </div>
+                <div id="venue-lineup" class="row z2-row fade fade-slow">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left:0;">
+                        <div id="fox-content" class="venue-container">                            
+                            <a class="logo-link" href="http://foxtheatre.com" title="FoxTheatre.com"><div id="logo-fox" class="venue-logo"></div></a>
+                            <asp:Repeater ID="rptFox" runat="server" OnDataBinding="rptList_DataBinding" OnItemDataBound="rptList_ItemDataBound">
+                                <HeaderTemplate><ul class="list-shows list-unstyled"></HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Literal ID="litLink" runat="server" EnableViewState="false" />
+                                </ItemTemplate>
+                                <FooterTemplate></ul></FooterTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " style="padding-right:0;">
+                        <div id="bt-content" class="venue-container">
+                            <a class="logo-link" href="http://bouldertheater.com" title="FoxTheatre.com"><div id="logo-bt" class="venue-logo"></div></a>                            
+                            <asp:Repeater ID="rptBt" runat="server" OnDataBinding="rptList_DataBinding" OnItemDataBound="rptList_ItemDataBound" >
+                                <HeaderTemplate><ul class="list-shows list-unstyled"></HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Literal ID="litLink" runat="server" EnableViewState="false" />
+                                </ItemTemplate>
+                                <FooterTemplate></ul></FooterTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
+                </div>
+
+            </div>            
+        </form>
+    </div>
+
+    <!-- modals need to be outside of page div to show properly -->
+    <div id="modal-container">
+
+        <div id="infomodal" class="modal wctmodal fade" tabindex="-1" role="dialog" aria-labelledby="infomodallabel" aria-hidden="true" style="display:none">                    
+            <div class="modal-dialog wctmodal-dialog">
+                <div class="modal-content wctmodal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-sm btn-darkness btn-close-modal" data-dismiss="modal" aria-hidden="true">
+                            Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" class="hide-from-view wct-modal-action" data-toggle="button" 
+                            data-loading-text="<span class='wct-modal-loader-spinner'></span>Loading...">Loading...</button>
+                    </div>                                            
+                    <div class="modal-footer">                            
+                        <button class="btn btn-sm btn-darkness" data-dismiss="modal" aria-hidden="true">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="privacymodal" class="modal wctmodal fade" tabindex="-1" role="dialog" aria-labelledby="privacymodallabel" aria-hidden="true" style="display:none">                    
+            <div class="modal-dialog wctmodal-dialog">
+                <div class="modal-content wctmodal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-sm btn-darkness btn-close-modal" data-dismiss="modal" aria-hidden="true">
+                            Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" class="hide-from-view wct-modal-action" data-toggle="button" 
+                            data-loading-text="<span class='wct-modal-loader-spinner'></span>Loading...">Loading...</button>
+                    </div>                                            
+                    <div class="modal-footer">                            
+                        <button class="btn btn-sm btn-darkness" data-dismiss="modal" aria-hidden="true">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="contactmodal" class="modal wctmodal fade" tabindex="-1" role="dialog" aria-labelledby="contactmodallabel" aria-hidden="true" style="display:none">
+            <div class="modal-dialog wctmodal-dialog">
+                <div class="modal-content wctmodal-content">
+                    <div id="contactmodallabel" class="modal-header wctmodal-header section-header" data-dismiss="modal" >
+                        Email Us
+                        <button type="button" class="close pull-right btn-close-modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-container">
+                        <div class="modal-message form-group img-rounded">
+                            <div class="wctmodal-error wctmodal-response"></div>
+                            <div class="wctmodal-success wctmodal-response"></div>
+                        </div>
+
+                        <div class="modal-body wctmodal-body form-horizontal">                                    
+                            <div id="contactNameGroup" class="form-group">
+                                <label class="sr-only" for="contactName">Your Name</label>
+                                <input type="text" class="form-control" style="width:100%;" id="contactName" name="name" placeholder="Your Name" />
+                            </div>
+                            <div id="contactEmailGroup" class="form-group">
+                                <label class="sr-only" for="contactEmail">Email</label>
+                                <input type="email" class="form-control" style="width:100%;" id="contactEmail" name="email" placeholder="Your Email Address" />
+                            </div>
+                            <div id="contactSubjectGroup" class="form-group">
+                                <label class="sr-only" for="contactSubject">Subject</label>
+                                <input type="text" class="form-control" style="width:100%;" id="contactSubject" name="subject" placeholder="Subject" />
+                            </div>
+                            <div id="contactMessageGroup" class="form-group">
+                                <label class="sr-only" for="contactMessage">Message</label>
+                                <textarea cols="60" rows="5" class="form-control" style="width:100%;" id="contactMessage" placeholder="Your message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-foxt wct-modal-action" data-toggle="button" 
+                                    data-loading-text="<span class='wct-modal-spinner'></span>Sending...">Send mail</button>    
+                                <br /><br />                       
+                                <p>***Please note that we are the Fox Theatre located in Boulder, CO.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer wctmodal-footer">
+                            <button class="btn btn-foxt" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/assets/javascripts/vendor/jquery-v1.11.1/jquery-1.11.1.min.js"><\/script>')</script>    
+    
+    <script type="text/javascript" src="/assets/javascripts/vendor/bootstrap-v3.2.0/bootstrap.min.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.cycle2-v2.1.5/jquery.cycle2.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.cookie-v1.4.1/jquery.cookie.js"></script>    
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.address-v1.6.0/jquery.address.js?state=/"></script>
+
+    <script type="text/javascript" src="/assets/javascripts/mailerSignup.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/z2ModalService.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/index.js"></script>
+
+    <!-- Twitter -->
+    <script>
+        //!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Google Plus -->
+    <script type="text/javascript">
+        //(function () {
+        //    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        //    po.src = 'https://apis.google.com/js/plusone.js';
+        //    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        //})();
+    </script>
+    
+
+    <!-- dynamic page content -->
+    <asp:ContentPlaceHolder ID="JsonObjects" runat="server">
+    </asp:ContentPlaceHolder>
+        
+</body>
+</html>

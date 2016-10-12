@@ -1,0 +1,534 @@
+﻿
+//main>cycle>type>header>content>show
+@import "mediaQHeader.less";
+
+
+//Deal with basic section headers, upcoming event list and widgets
+//section headers in event are handled in show!
+
+.section-header {
+    font-family:Share,sans-serif;    
+    position: relative;
+    display: block;    
+    height: 60px;
+    text-align: center;
+    .gradient-header;
+    border: solid lighten(@blue_border,1%) 3px; //share with header    
+    .box-shadow(0 0 5px lighten(@blue_border,25%));//#555
+    color: @white;
+    z-index: 1;
+    text-indent:-2px;
+    .font-size(3);
+    line-height: 52px;
+
+    #twitter & A {
+        color: @white_almost;
+    }
+}
+
+.section-header-announced {
+}
+
+#main-content {
+    padding:0;
+    position:relative;
+}
+
+.wctpg-mobilemailmanager_aspx #listing-container,
+#event-container,
+#media-container {
+    display:none;
+    position:relative;
+}
+
+.wctpg-mobilemailmanager_aspx #event-container {
+    display:block;
+}
+// end of basic structure and content selection
+// **************************************************************
+
+// **************************************************************
+// Upcoming Shows
+#listing-container {
+    position:relative;
+    padding-bottom:15em;
+}
+
+#upcoming-shows {
+    .section-header {
+        display:none;
+    }
+
+    FOOTER {
+        margin:2em 0;
+        padding:10px;
+    }
+}
+
+#upcoming-inner {
+    float: left;
+}
+
+#upcoming-loop {
+    float: left;
+    letter-spacing: normal;
+
+    & > DIV {
+        width: 100%;
+        float: left;
+        position: relative;
+        background-color: darken(@blue_border,25%);
+        border: solid @blue_border 1px;
+        margin-bottom: 7px;
+        outline:none;
+
+        &:hover {
+            background-color: darken(@blue_border,10%);
+            border: solid lighten(@blue_border, 15%) 1px;
+            .box-shadow(0 0 15px #666);
+        }
+    }
+
+    A {
+        display: block;
+        float: left;
+        width: 100%;
+        text-align: left;
+        color: @white;
+        text-decoration: none;
+        clear: left;
+    }
+
+    .upcoming-container {
+        display: inline-block;
+        float: left;
+    }
+}
+
+.billingopens {
+    display:block;
+    margin-top:3px;
+    .font-size(1.3);
+    line-height:1em;
+}
+
+//this is the phone info display
+.mobile-info {
+    display: block;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    word-wrap: break-word;
+    font-weight: bold;
+    .font-size(1.8);
+    line-height: 1em;
+
+    .status-buy,
+    .status-future-sale,
+    .status-status {
+        position: relative;
+        display: block;
+        text-align: center;
+        height: 50px; //match height of datpart-container
+        padding-left: 5px;
+        padding-right: 5px;
+
+        SPAN {
+            display: inline-block;
+            .vertical-align;
+        }
+    }
+
+    .status-status {
+        .status-status-styling;
+    }
+
+    .status-future-sale { //mobile
+        .font-size(1.4);
+        line-height: 1em;
+        .status-future-sale-styling;
+
+        span {
+            top:25%;
+        }
+    }
+
+    .status-buy {
+        color: #fff;
+
+        .glyphicon {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+}
+
+#rdoplayer,
+#ytplayer {
+    //margin:0 6px;//expands element - no!!!
+    padding: 2px 3px 0 3px; //still some issue with ipad
+    overflow: hidden;
+    padding-bottom:56.25%;
+}
+
+#ytplayer {
+    IFRAME {
+        position:absolute;
+        top: 0;
+        left:0;
+        height:100%;
+        width: 100%;
+    }
+}
+
+#rdoplayer {
+    &:after {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 100%;
+        background-color: #111;
+        background-color: rgba(0,0,0,.88);
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+/*****************************************************
+ * generic styling for ALS elements: outer container
+ ******************************************************/
+
+.als-container {
+	position: relative;
+	width: 100%;
+    margin:0;
+	z-index: 0;
+    .cellbackground;
+    border:solid #222 2px;
+    border-top:none;
+}
+
+/****************************************
+ * viewport styling
+ ***************************************/
+.als-viewport {
+	position: relative;
+	overflow: hidden;
+    margin:0;
+    width:100% !important;
+}
+
+/***************************************************
+ * wrapper styling
+ **************************************************/
+.als-wrapper {
+	position: relative;
+	list-style: none;    
+}
+
+/*************************************
+ * item: single list element
+ ************************************/
+.als-item {
+	position: relative;
+	display: block;
+	cursor: pointer;
+	float: left;
+}
+
+#justannounced {
+    .justannounced-listing {
+        .border-radiuses(0, 5px, 5px, 0);
+        padding:5px 10px;
+        font-size:1.1em;
+        letter-spacing:-1px;
+
+        UL {
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+
+        LI:nth-child(odd) {
+            background-color:rgba(66,66,66,0.5);
+        }
+
+        LI {
+            display:block;
+            clear:both;            
+            font-weight:bold;
+            position:relative;       
+            width:100%;
+
+             A {
+                display:block;
+                width:100%;
+                position:relative;      
+                clear:left;   
+                float:left;     
+                color:#fff;  
+                text-shadow: 2px 2px 0 #000;
+
+                &:hover {
+                    color:#ff9833;
+                }
+            }
+
+             .dater {
+                display:block;
+                position:relative;
+                width:42px;
+                float:left;
+            }
+
+            .announcer {                
+                display:block;
+                float:left;
+                min-width:200px;//use this to keep content from swooping under dater
+                width:80% !important;
+            }
+        }
+    }
+}
+// end of Upcoming shows
+// **************************************************************
+
+
+// **************************************************************
+//
+// MEDIA QUERIES
+//
+// **************************************************************
+
+//2 column
+//@col2-500:500px;
+@media (min-width: @col2-500) {
+
+    #main-content {
+        position:relative;
+    }
+
+    #backtotop {
+        visibility:visible;
+    }
+
+    #listing-container,
+    #event-container {
+        display:inline-block;
+        float:none;
+        position:absolute;//floating makes the display build up - use absolute
+        top:0;
+    }
+
+    #listing-container {
+        left:0;        
+        width:40%;
+        padding-right:5px;
+    }
+
+    #event-container {
+        width:60%;
+        display:inline-block;        
+        right:0;
+    }
+    
+    .section-header {
+        .font-size(2.5);
+        height:48px;   
+        letter-spacing:-2px;
+    }    
+
+    #upcoming-shows {      
+        .section-header {
+            display: block;            
+        }
+    }
+
+    #upcoming-inner {
+        margin: 0 3px;
+        padding:0 3px;
+        padding-top:7px;
+        .cellbackground;
+        margin-bottom:1600px;
+    }
+
+    #upcoming-loop {            
+        & > DIV.activio {
+            background-color: #282828;
+        }
+    }
+
+    .billingopens,
+    .mobile-info {
+        display:none;
+    }
+
+}
+
+//2 column addtl breakpoints
+@media (min-width: @col2-650) {
+    .section-header {
+        .font-size(2.7);
+        letter-spacing:-2px;
+    }
+}
+// end of 2 column
+// **************************************************************
+
+
+// **************************************************************
+//3 column - collapse is no longer in effect
+@media (min-width: @col3-768) {
+    .section-header {
+        .font-size(2.7);
+    }
+
+    .site-width-container {
+        width:100%;
+        max-width:1024px;
+    }
+
+    #listing-container,
+    #event-container,
+    #media-container {    
+        display:inline-block !important;
+        float:none;
+        position:absolute;//floating makes the display build up - use absolute
+        top:0;
+    }
+
+    #listing-container {
+        width:25%;
+        padding-left:3px;
+        padding-right:7px;
+    }
+    #event-container {
+        left:25%;
+        width:42%;
+        margin-left:1px;//nudge the ipad display
+        top:-18px;
+    }
+    #media-container {
+        width: 33%;
+        right: 0;
+        padding-left: 7px;
+        padding-right:3px;
+    }
+
+    #widgetpanel {
+    
+        SECTION {
+            margin-bottom: 10px;
+        }
+
+        #widgetbuttons {
+
+            A {
+                color: @white_almost;
+                text-decoration:none;
+
+                &:hover {
+                    color: @white_almost;
+                    text-shadow:@glow-grey-md;                    
+                }
+            }
+
+            #textuslink, #maileractivate {
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+                .font-size(2.1);
+                line-height: 45px;
+                letter-spacing:-1px;
+                height: 50px;
+            }
+
+            #textuslink {
+                margin-bottom: 10px;
+            }
+        }
+
+        #twitter {
+            .section-header A {
+                text-decoration: none;
+
+                &:hover {
+                    text-shadow:@glow-grey-lg;
+                }
+            }
+
+            #tweet-wrapper {
+                padding: 0 2px 8px 5px;
+
+                #tweet-container {
+                    overflow: auto;
+                    overflow-x: hidden;
+                    height: 350px;
+                    padding-top: 5px;
+                }
+
+                LI {
+                    font-size: .9em;
+                    line-height: 1.3em;
+                    margin: 0;
+                    padding: 4px 3px; 
+                    border-bottom: dotted #eee 1px;
+                    color: #ddd;
+                }
+
+                LI A {
+                    color: @orange; 
+                    font-weight: bold;    
+                }
+            }
+        }
+    }
+
+    #sponsors {
+        .cellbackground;
+        .border-radiuses(5px, 5px, 5px, 5px);
+        margin-bottom: 100px;
+        text-align: center;
+
+        A {
+            display:block;
+            padding: 3em 0 4em 0;
+        }
+
+        .boulder-theater {
+            display: block;
+            background: url("@{base-img-url}/bttranslogo190.png") no-repeat top left;
+            width: 190px;
+            height: 69px;
+            text-indent: -8000px;
+            margin: 0 auto;            
+        }
+    }
+}
+
+//3 column addtl breakpoints
+@media (min-width: @col3-768) and (max-width: @col3-825) {
+    #widgetpanel {
+        #widgetbuttons {
+            #textuslink, #maileractivate {
+                .font-size(1.7);
+                line-height: 45px;
+            }
+        }
+    }
+}
+
+@media (min-width: @col3-825) and (max-width: 930px) {
+    #widgetpanel {
+        #widgetbuttons {
+             #textuslink, #maileractivate {
+                .font-size(1.9);
+                line-height: 45px;
+            }
+        }
+    }
+}

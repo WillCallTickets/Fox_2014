@@ -1,0 +1,207 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="TemplateAdmin.master.cs" Inherits="wctMain.Masters.TemplateAdmin" %>
+<%@ Register Src="/Admin/ControlsFT/Login_Mini.ascx" TagName="Login_Mini" TagPrefix="uc1" %>
+<%@ Register src="/Admin/ControlsFT/NavMain.ascx" tagname="NavMain" tagprefix="uc7" %>
+<%@ Register src="~/Admin/_customControls/AdminMainNav.ascx" tagname="AdminMainNav" tagprefix="uc2" %>
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head id="Head1" runat="server">
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="/assets/styles/bootstrap-v3.2.0.min.css" rel="stylesheet" media="screen" />
+
+    <link href="/Admin/assets/styles/SiteStyle.css" type="text/css" rel="StyleSheet" />
+    <link href="/Admin/assets/styles/admin.css" type="text/css" rel="StyleSheet" />    
+    <link href="/Admin/assets/uploadifive/uploadifive-v1.2.2.css" type="text/css" rel="StyleSheet" />    
+    <link href="/assets/styles/jqueryui/lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" media="screen">
+
+    <script type="text/javascript" src="/Admin/assets/includes/GeneralJava.js"></script>
+    
+    <link rel="stylesheet" href="/Admin/assets/styles/bootstrap-datetimepicker.min.css" type="text/css">
+
+    <script type="text/javascript" src="/assets/javascripts/wctJsLibrary.js"></script>
+    <link rel="stylesheet" href="/assets/styles/mediaQShow.less">
+    <link rel="stylesheet" href="/assets/styles/adminMain.less">    
+    <link rel="stylesheet" href="/assets/styles/kioskMain.less">
+    <script type="text/javascript" src="/assets/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700|Share:400,700|Fjalla+One' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="adminbody" runat="server">
+<div id="fb-root"></div>
+
+
+<form id="FormMain" runat="server" >
+    <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server"></asp:ScriptManager>
+    <div id="admin">
+        <div id="adminhead">
+            <div class="adminhead-container">
+                <h1>Z2 Website Administration</h1>
+                <div class="admin-user">
+                    <uc1:Login_Mini ID="Login_Mini1" runat="server" />
+                </div>
+                <div class="admin-site-links">
+                    <uc7:NavMain ID="NavMain1" runat="server" />
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div id="lowercontent">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td rowspan="99" class="leftsection">
+                        <uc2:AdminMainNav ID="AdminMainNav1" runat="server" />
+                    </td>
+                    <td class="maincontent">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr height="100%" valign="bottom">
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+   </div>
+        
+    <!-- Show preview -->
+    <div id="admindisplaymodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="admindisplaymodallabel" aria-hidden="true">
+        <div class="modal-dialog wctmodal-dialog">
+            <div class="modal-content wctmodal-content">
+                <div class="modal-body" style="width:420px;margin:0 auto;">
+                    <button type="button" class="hide-from-view" data-toggle="button"
+                        data-loading-text="<span class='wct-modal-loader-spinner'></span>Loading...">
+                        Loading show...</button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ShowMore functionality -->
+    <div id="showmoremodal" class="modal wctmodal fade" tabindex="-1" role="dialog" aria-labelledby="showmoremodallabel" aria-hidden="true" style="display:none">                    
+            <div class="modal-dialog wctmodal-dialog">                
+                <div class="modal-content wctmodal-content">
+                    <div id="showmoremodallabel" class="modal-header wctmodal-header section-header" >
+                    </div>    
+                    <div class="modal-container">
+                        <div class="modal-body wctmodal-body">
+                            <button type="button" class="hide-from-view wct-modal-action" data-toggle="button" 
+                                data-loading-text="<span class='wct-modal-loader-spinner'></span>Loading...">Loading writeup</button>
+                        </div>                                            
+                        <div class="modal-footer wctmodal-footer">                            
+                            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- When copying a show - set the new date -->
+    <div id="showcopymodal" class="modal fade wctmodal" tabindex="-1" role="dialog" aria-labelledby="showcopymodallabel" aria-hidden="true" style="display:none">
+        <div class="modal-dialog wctmodal-dialog">
+            <div class="modal-content wctmodal-content">
+                <div class="modal-header wctmodal-header">
+                    <div id="showcopymodallabel" class="section-header" data-dismiss="modal">
+                        Copy This Show
+                        <button type="button" class="close pull-right btn-close-modal" aria-hidden="true">×</button>
+                    </div>
+                </div>
+                <div class="modal-message form-group img-rounded">
+                    <div class="wctmodal-error wctmodal-response"></div>
+                    <div class="wctmodal-success wctmodal-response"></div>
+                </div>
+
+                <div class="modal-body wctmodal-body">
+                    <div class="form-group form-horizontal">
+                        <div>
+                        <%if (Atx.CurrentShowRecord != null)
+                          { %>
+                        <%=Atx.CurrentShowRecord.Name %>
+                        <%} %>
+                        </div>
+                        <br />
+                        <div>
+                            All information from the current show will be copied with a few exceptions.
+                            <ul>
+                                <li>The new show will be marked as NOT-ACTIVE! You will need to activate and publish for the show to display.</li>
+                            </ul>
+                        </div>
+                        <br />
+                        <div>Select a date and a time for the new show and click the create button.</div>
+                        <div>Upon successful creation, you will be redirected to the new show.</div>
+                        <br />
+                    </div>
+                    <div id="copyDateGroup" class="form-group">
+                        <div class="input-group date form_startdatetime" id="showdatecopycontrol" data-date="<%=(Atx.CurrentShowRecord != null) ? getStartDateAndTime("yyyy-MM-dd HH:mm") : "" %>" data-date-format="dd MM yyyy - HH:ii p" data-link-field="copyshowdate">
+                            <span class="input-group-addon">
+                                Select
+                            </span>
+                            <input class="form-control" id="startdateinput" size="35" type="text" value="<%=(Atx.CurrentShowRecord != null) ? getStartDateAndTime("yyyy-MM-dd hh:mm tt") : "" %>" readonly="true">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                            <input type="hidden" id="copyshowdate" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary wct-modal-action" data-toggle="button" 
+                            data-loading-text="<span class='wct-modal-spinner'></span>Copying...">Copy Show To Selected Date</button>    
+                        <br /><br />
+                    </div>
+                </div>   
+                                         
+                <div class="modal-footer wctmodal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <asp:HiddenField ID="hdnProcessingMessage" runat="server" ClientIDMode="Static" Value="...Right On Dude..." />
+    <asp:HiddenField ID="hdnUserName" runat="server" ClientIDMode="Static" Value="" />
+    <asp:HiddenField ID="hdnCurrentShowId" runat="server" ClientIDMode="Static" Value="" />
+
+
+    <!--1.10.2-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/assets/javascripts/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    
+    <script type="text/javascript" src="/Admin/assets/jqueryui/jquery-ui-1.10.4.min.js"></script>
+    
+    <script type="text/javascript" src="/Admin/assets/jqueryui/smalot-bootstrap-datetimepicker.min.js"></script>   
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/bootstrap-v3.2.0.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/respond_1.1.0.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/typeahead.bundle-v0.10.5.min.js"></script>
+    
+    
+    <script type="text/javascript" src="/Admin/assets/jqueryui/jquery.Jcrop-v0.9.12.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/jqueryui/jquery.blockUI-v2.66.js"></script>  
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.cookie.js"></script>    
+    
+    <script type="text/javascript" src="/assets/javascripts/wctModalService.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/controls.js"></script>
+    
+    <script type="text/javascript" src="/Admin/assets/jqueryui/adminSearches.js"></script>
+    <script type="text/javascript" src="/Admin/assets/jqueryui/wctadmin.js"></script>
+    <script type="text/javascript" src="/Admin/assets/jqueryui/orderer.js"></script>
+    <script type="text/javascript" src="/Admin/assets/jqueryui/showmgmt.js"></script>
+
+    <script type="text/javascript" src="/Admin/assets/uploadifive/jquery.uploadifive-v1.2.2.min.js"></script>
+    <script type="text/javascript" src="/WillCallResources/ckeditor/ckeditor.js"></script>
+
+</form>
+</body>
+</html>
+

@@ -1,0 +1,142 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master_Account.master.cs" Inherits="wctMain.View.Masters.Master_Account" %>
+
+<%@ Register Src="/View/Partials/Masthead.ascx" TagName="Masthead" TagPrefix="uc4" %>
+
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head id="Head1" runat="server" prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fox Theatre - Boulder, CO</title>
+
+    <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700|Share:400,700|Fjalla+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/styles/bootstrap-v3.2.0.min.css" media="screen">
+    <link rel="stylesheet" href="/assets/styles/jqueryui/lightness/jquery-ui-1.10.4.min.css" media="screen">
+
+    <link rel="stylesheet" href="/assets/styles/twitter-typeahead.css">         
+
+    <!-- iOS landscape zoom fix -->
+    <script type="text/javascript">
+        (function (doc) {
+            var addEvent = 'addEventListener',
+                    type = 'gesturestart',
+                    qsa = 'querySelectorAll',
+                    scales = [1, 1],
+                    meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+            function fix() {
+                meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+                doc.removeEventListener(type, fix, true);
+            }
+            if ((meta = meta[meta.length - 1]) && addEvent in doc) {
+                fix();
+                scales = [.25, 1.6];
+                doc[addEvent](type, fix, true);
+            }
+        }(document));
+    </script>
+    <!-- endfix -->
+
+    <link rel="stylesheet" href="/assets/styles/mediaQShow.less">
+    
+    <script src="/assets/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/assets/javascripts/wctJsLibrary.js"></script>
+
+     <!--
+            Windows Phone 8 and Internet Explorer 10 viewport fix
+        -->
+    <style type="text/css">
+        @-webkit-viewport {
+            width: device-width;
+        }
+
+        @-moz-viewport {
+            width: device-width;
+        }
+
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        @-o-viewport {
+            width: device-width;
+        }
+
+        @viewport {
+            width: device-width;
+        }
+    </style>
+    <script type="text/javascript">
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style")
+            msViewportStyle.appendChild(
+              document.createTextNode(
+                "@-ms-viewport{width:auto!important}"
+              )
+            )
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
+        }
+    </script>
+
+    <!-- analytic content -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        if (window.location.hostname.indexOf('local') != -1)
+            ga('create', 'UA-XXXX-Y', { 'cookieDomain': 'none' });
+        else
+            ga('create', 'UA-693894-1', 'foxtheatre.com');
+
+        ga('require', 'linkid', 'linkid.js');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body class="master-account">
+
+    <div id="fb-root"></div>
+    
+    <div id="site-bg"></div>
+
+    <asp:Literal ID="startPageId" runat="server" EnableViewState="false" />   
+
+        <div id="pagedef">
+
+            <form id="mainform" runat="server" class="pageform">
+                <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnableHistory="true" EnableSecureHistoryState="false">
+                </asp:ScriptManager>
+                <!-- avoid index of action not found -->
+                <script type="text/javascript">
+                    Sys._Application.prototype._setState = function () { }
+                </script>
+
+                <uc4:Masthead ID="Masthead1" runat="server" />
+
+                <div id="validationmain">
+                    <asp:CustomValidator ID="RemovalValidator" Display="Static" runat="server" Text="*" CssClass="invisible"></asp:CustomValidator>
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="validationsummary" HeaderText="" />
+                </div>
+
+                <div id="main-content" class="container site-width-container">
+                    <div id="event-container">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>                
+                </div>
+            </form>
+        </div><!-- pagedef-->
+    <asp:Literal ID="endPageId" runat="server" EnableViewState="false" Text="</div>" />
+
+</body>
+</html>

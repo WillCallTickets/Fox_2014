@@ -1,0 +1,350 @@
+<%@ Master Language="C#" AutoEventWireup="false" CodeFile="Master_Main.master.cs" Inherits="wctMain.Masters.Master_Main" %>
+
+<%@ Register Src="/View/Partials/WidgetPanel.ascx" TagName="WidgetPanel" TagPrefix="uc3" %>
+<%@ Register Src="/View/Partials/Masthead.ascx" TagName="Masthead" TagPrefix="uc4" %>
+<%@ Register Src="/View/Partials/Cycle2Carousel.ascx" TagName="Cycle2Carousel" TagPrefix="uc7" %>
+
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head id="Head1" runat="server" prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>The Fox Theatre - Boulder, CO</title>
+    <meta id="meta_robo" />
+    <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700|Share:400,700|Fjalla+One' rel='stylesheet' type='text/css'>
+    
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US">
+    <meta property='og:site_name' content='The Fox Theatre - Boulder, CO' />
+    <meta id="og_appid" property='fb:app_id' content='' />
+    <meta id="og_admins" property='fb:admins' content='' />
+
+    <meta id="og_image" property='og:image' content='http:/foxtheatre.com/WillCallResources/Images/bgs/balcrowd.jpg' />
+    <meta id="og_image_width" property='og:image:width' content='' />
+    <meta id="og_image_height" property='og:image:height' content='' />
+    <meta id="og_title" property='og:title' content='Home page' />
+    <meta id="og_url" property='og:url' content='http://www.foxtheatre.com/' />
+    <meta id="og_description" property='og:description' content="Located on The Hill, The Fox Theatre is the premier 
+        live music club in Boulder, Colorado.  Recently voted 4th best music venue in the country by Rolling Stone Magazine, 
+        the Fox offers top-notch talent, a world-class sound system, and an intimate 625 capacity atmosphere.  Check out our 
+        event lineup and join us for a memorable experience." />
+    
+    <link rel="stylesheet" href="/assets/styles/bootstrap-v3.2.0.min.css" media="screen">
+    <link rel="stylesheet" href="/assets/styles/jqueryui/lightness/jquery-ui-1.10.4.min.css" media="screen">
+    
+    <!-- iOS landscape zoom fix -->
+    <script type="text/javascript">
+        (function (doc) {
+            var addEvent = 'addEventListener',
+                    type = 'gesturestart',
+                    qsa = 'querySelectorAll',
+                    scales = [1, 1],
+                    meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+            function fix() {
+                meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+                doc.removeEventListener(type, fix, true);
+            }
+            if ((meta = meta[meta.length - 1]) && addEvent in doc) {
+                fix();
+                scales = [.25, 1.6];
+                doc[addEvent](type, fix, true);
+            }
+        }(document));
+    </script>
+    <!-- endfix -->
+
+    <link rel="stylesheet" href="/assets/styles/mediaQShow.less?v=1.1">
+    
+    <script src="/assets/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/assets/javascripts/wctJsLibrary.js"></script>
+    
+
+    <!--
+            Windows Phone 8 and Internet Explorer 10 viewport fix
+        -->
+    <style type="text/css">
+        @-webkit-viewport {
+            width: device-width;
+        }
+
+        @-moz-viewport {
+            width: device-width;
+        }
+
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        @-o-viewport {
+            width: device-width;
+        }
+
+        @viewport {
+            width: device-width;
+        }
+    </style>
+    <script type="text/javascript">
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style")
+            msViewportStyle.appendChild(
+              document.createTextNode(
+                "@-ms-viewport{width:auto!important}"
+              )
+            )
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
+        }
+    </script>
+    
+    <!-- analytic content -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        if (window.location.hostname.indexOf('local') != -1)
+            ga('create', 'UA-XXXX-Y', {'cookieDomain': 'none'});
+        else
+            ga('create', 'UA-693894-1', 'foxtheatre.com');
+
+        ga('require', 'displayfeatures');
+        ga('require', 'linkid', 'linkid.js');
+
+    </script>
+    
+</head>
+<body itemscope itemtype="http://schema.org/Organization" class="default">
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=172208982825393";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div id="site-bg"></div>
+
+    <div id="pagedef">
+                
+        <asp:Literal ID="litGglVenue" runat="server" EnableViewState="false" />
+
+        <form id="mainform" action="/" runat="server" class="pageform">
+            <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" EnableHistory="true" EnableSecureHistoryState="false">
+            </asp:ScriptManager>
+            <!-- avoid index of action not found -->
+            <script type="text/javascript">
+                Sys._Application.prototype._setState = function() {}
+            </script>
+
+            <uc4:Masthead ID="Masthead1" runat="server" />
+
+            <%
+                //dont show banner for selected pages
+                if ( (this.Page.ToString().ToLower().IndexOf("error_aspx") == -1) &&
+                    (this.Page.ToString().ToLower().IndexOf("register_aspx") == -1) &&                    
+                    (this.Page.ToString().ToLower().IndexOf("editprofile_aspx") == -1) 
+                    )
+                {%>
+
+            <div id="carousel-container" class="container site-width-container" style="position:relative;">
+
+                <%--<div class="master-badge">
+                    <a id="btnbadge" href="http://z2ent.com/signupcampaign?utm_source=foxwebsite&utm_medium=badge&utm_campaign=initialsignup" 
+                        title="Sign up for our 2 = 1 newsletter!"></a>
+                </div>--%>
+
+                <uc7:Cycle2Carousel ID="Cycle2Carousel1" runat="server" />
+
+            </div>
+
+            <%} %>
+
+            <div id="main-content" class="container site-width-container">
+                <div id="listing-container">
+                    <asp:ContentPlaceHolder ID="EventListingContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="event-container">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="media-container">
+                    <asp:ContentPlaceHolder ID="WidgetContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div id="backtotop">
+                </div>
+            </div>
+            
+        </form>
+    </div>
+
+    <div id="modal-container">
+        <div id="showmoremodal" class="modal wctmodal fade" tabindex="-1" role="dialog" aria-labelledby="showmoremodallabel" aria-hidden="true" style="display:none">                    
+            <div class="modal-dialog wctmodal-dialog">                
+                <div class="modal-content wctmodal-content">
+                    <div id="showmoremodallabel" class="modal-header wctmodal-header section-header" >
+                    </div>    
+                    <div class="modal-container">
+                        <div class="modal-body wctmodal-body">
+                            <button type="button" class="hide-from-view wct-modal-action" data-toggle="button" 
+                                data-loading-text="<span class='wct-modal-loader-spinner'></span>Loading...">Loading...</button>
+                        </div>                                            
+                        <div class="modal-footer wctmodal-footer">                            
+                            <button class="btn btn-foxt" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contactmodal" class="modal wctmodal fade" tabindex="-1" role="dialog" aria-labelledby="contactmodallabel" aria-hidden="true" style="display:none">
+            <div class="modal-dialog wctmodal-dialog">
+                <div class="modal-content wctmodal-content">
+                    <div id="contactmodallabel" class="modal-header wctmodal-header section-header" data-dismiss="modal" >
+                        Email Us
+                        <button type="button" class="close pull-right btn-close-modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-container">
+                        <div class="modal-message form-group img-rounded">
+                            <div class="wctmodal-error wctmodal-response"></div>
+                            <div class="wctmodal-success wctmodal-response"></div>
+                        </div>
+
+                        <div class="modal-body wctmodal-body form-horizontal">                                    
+                            <div id="contactNameGroup" class="form-group">
+                                <label class="sr-only" for="contactName">Your Name</label>
+                                <input type="text" class="form-control" style="width:100%;" id="contactName" name="name" placeholder="Your Name" />
+                            </div>
+                            <div id="contactEmailGroup" class="form-group">
+                                <label class="sr-only" for="contactEmail">Email</label>
+                                <input type="email" class="form-control" style="width:100%;" id="contactEmail" name="email" placeholder="Your Email Address" />
+                            </div>
+                            <div id="contactSubjectGroup" class="form-group">
+                                <label class="sr-only" for="contactSubject">Subject</label>
+                                <input type="text" class="form-control" style="width:100%;" id="contactSubject" name="subject" placeholder="Subject" />
+                            </div>
+                            <div id="contactMessageGroup" class="form-group">
+                                <label class="sr-only" for="contactMessage">Message</label>
+                                <textarea cols="60" rows="5" class="form-control" style="width:100%;" id="contactMessage" placeholder="Your message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-foxt wct-modal-action" data-toggle="button" 
+                                    data-loading-text="<span class='wct-modal-spinner'></span>Sending...">Send mail</button>    
+                                <br /><br />                       
+                                <p>***Please note that we are the Fox Theatre located in Boulder, CO.</p>
+                            </div>
+                        </div>   
+                                         
+                        <div class="modal-footer wctmodal-footer">
+                            <button class="btn btn-foxt" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/assets/javascripts/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery-ui-1.10.4.min.js"></script>
+    
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/bootstrap-v3.2.0.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/respond_1.1.0.js"></script>
+
+
+
+    <% if (!this.Page.ToString().Equals("asp.admin_showdisplayer_aspx", StringComparison.OrdinalIgnoreCase))
+       {%>
+    <script type="text/javascript" src="/assets/javascripts/vendor/knockout-v3.0.0.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/typeahead.bundle-v0.10.5.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.readmore.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.cookie.js"></script>    
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.backstretch-2.0.4.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.scrollUp-v2.2.0.min.js"></script>
+
+    <!-- Twitter -->
+    <script>
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Google Plus -->
+    <script type="text/javascript">
+        (function () {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;  
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.address-1.6.min.js?state=/"></script>
+
+    <%} //end of script exclusion by page - if not admin_showdisplayer %>    
+
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.cycle2-v2.1.1.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/wctModalService.js"></script>
+
+    <!-- dynamic page content -->
+    <asp:ContentPlaceHolder ID="JsonObjects" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <% if (this.Page.ToString().Equals("asp.index_aspx", StringComparison.OrdinalIgnoreCase) ||
+            this.Page.ToString().Equals("asp.mobilemailmanager_aspx", StringComparison.OrdinalIgnoreCase) ||
+            this.Page.ToString().Equals("asp.admin_showdisplayer_aspx", StringComparison.OrdinalIgnoreCase))
+       {
+    %>
+    <script type="text/javascript" src="/assets/javascripts/controls.js"></script>
+    <%} %>
+
+    <%if (this.Page.ToString().Equals("asp.index_aspx", StringComparison.OrdinalIgnoreCase) || this.Page.ToString().Equals("asp.mobilemailmanager_aspx", StringComparison.OrdinalIgnoreCase))
+      {%>
+    <script type="text/javascript" src="/assets/javascripts/index.js"></script>    
+    <%}%>
+    
+
+    <!-- Frontgate tracking pixel -->
+    <script type="text/javascript">
+        adroll_adv_id = "CPFR3XNBCNBJZOULQOBXNO";
+        adroll_pix_id = "QX6G7ZZQXBGYNA42EMSWBA";
+        // adroll_email = "username@example.com"; // OPTIONAL: provide email to improve user identification
+        (function () {
+            var _onload = function () {
+                if (document.readyState && !/loaded|complete/.test(document.readyState)) { setTimeout(_onload, 10); return }
+                if (!window.__adroll_loaded) { __adroll_loaded = true; setTimeout(_onload, 50); return }
+                var scr = document.createElement("script");
+                var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+                scr.setAttribute('async', 'true');
+                scr.type = "text/javascript";
+                scr.src = host + "/j/roundtrip.js";
+                ((document.getElementsByTagName('head') || [null])[0] ||
+                    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+            };
+            if (window.addEventListener) { window.addEventListener('load', _onload, false); }
+            else { window.attachEvent('onload', _onload) }
+        }());
+    </script>
+    <!-- end of Frontgate tracking -->
+    
+</body>
+</html>

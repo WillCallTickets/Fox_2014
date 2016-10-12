@@ -1,0 +1,481 @@
+﻿
+@import "adminDefines.less";
+
+#adminhead {
+    border: solid @bs_primary 1px;
+    background-color: darken(@bs_primary, 25%);
+    height: 70px;
+    position: relative;
+    padding: 0;
+
+    .adminhead-container {
+        //border: solid white 1px;
+        position: relative;
+        top: 0;
+        display: block;
+        padding-left: 25px;
+        width: 1280px;
+        height: 70px;
+
+        H1 {
+            color: lighten(@bs_info,10%);
+            font-weight: bold;
+            font-family: Tahoma;
+            //.opacity(.7);
+            position: absolute;
+            top: 12px;
+            //line-height:20px;
+            padding: 0;
+            margin: 0;
+            text-shadow: 1px 1px 1px #000, 0 0 5px #777;
+        }
+
+        .admin-user {
+            //border: solid white 1px;
+            position: absolute;
+            bottom: 7px;
+            right: 15px;
+            text-align: right;
+
+            #loginsmall {
+                //border: solid red 1px;
+                DIV {
+                    display: inline-block;
+                    color: white;
+                    
+                    font-weight: bold;
+
+                    .logininfo DIV {
+                        margin-right: 20px;
+                        .opacity(.8);
+                    }
+
+                    A {
+                        color: white;
+                        .opacity(.8);
+                        font-weight: bold;
+                        margin-left: 20px;
+
+                        &:hover {
+                            color:white;
+                            .opacity(1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .admin-site-links {
+            //border: solid white 1px;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+
+            .btn {
+                width: 110px;
+                margin-right: 0;
+                margin-left: 20px;
+                font-weight: bold;
+                color: black;
+                border-color: #444;
+                box-shadow: 1px 1px 1px #000, 0 0 5px #777;
+            }
+        }
+    }
+}
+
+#lowercontent {
+    //border: solid red 1px;
+    margin-top: 5px;
+    width: 1280px;
+
+    .leftsection {
+        //border: solid red 1px;
+        width:175px;
+        padding-right:5px;
+    }
+
+    .maincontent {
+        //border: solid green 1px;
+        width:1105px;
+    }
+}
+
+#admin_menu {
+    border: solid @bs_primary 1px;
+    background-color: darken(@bs_primary, 25%);
+    .border-radiuses(5px, 5px, 0, 0);
+    padding: 10px;
+    margin-left: 0;
+    
+
+    .btn {
+        font-weight: bold;
+        text-align: left;
+        padding-left: 10px;
+        font-size: 18px;
+        text-shadow: 0 0 1px #444;
+        margin-bottom: 10px;
+    }
+
+    .btn-lg {
+        font-weight:bold;
+        font-size:24px;
+        text-align:center;
+        text-transform:uppercase;
+        margin-bottom:25px !important;
+    }
+
+    .admin-menu-link {
+        padding-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 15px;
+
+        A {
+            display: block;
+            color: white;
+        }
+    }
+}
+
+
+
+
+
+#showcreator .btn-lg {
+    font-weight:bold;
+    font-size:20px;
+    line-height:36px;
+    text-align:center;
+    text-transform:uppercase;
+    margin-bottom:25px !important;
+}
+
+.btn-search-create {
+    width:125px;
+}
+.btn-edit,
+.btn-test {
+    width: 125px;
+}
+
+.btn-add-new {
+    width:150px;
+    text-transform:capitalize;
+    font-weight:bold;
+    margin-right:15px;
+    color:darken(@bs_primary, 25%);    
+    font-size: 20px;
+    line-height:20px;
+    height:34px;
+}
+
+.invisible {
+    height:0 !important;
+    line-height:0 !important;
+    width:0 !important;
+    font-size:0 !important;
+}
+
+.settings-row TD {
+    padding:3px;
+}
+
+/*avoid ddl selection lists from editors from being behind everything*/
+#AutoCompleteExtender1_completionListElem,
+#ctl00_MainContent_ctl01_Editor_Act1_wizEdit_AutoCompleteExtender1_completionListElem {
+    z-index:1000000 !important;
+}
+
+#showmgr {
+    //border:solid #333 1px;
+    width:100%;
+    padding:0;
+}
+
+/*gen settings for all panels used in show-mgmt and showmgr*/
+#showmgr .panel-primary,
+.show-mgmt .panel-primary {
+    /*bg color shared from menu*/
+    border-color: darken(@bs_primary, 25%);
+    position:relative;
+
+    .panel-heading {
+        background-color: darken(@bs_primary, 25%);
+        padding:10px;
+        border-bottom: solid 2px darken(@bs_primary, 10%);
+    }
+}
+
+/*gen settings for showmgr headers*/
+#showmgr {
+    .panel-heading {
+        //border: solid red 1px;
+        font-size: 15px;
+        vertical-align: 50%;
+        position: relative;
+        float: left;
+        width: 100%;
+        vertical-align: middle;
+
+        .badge-container {
+            //border: solid green 1px;
+            display: inline-block;
+            float: left;
+            width: 250px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .badge {
+            width: 100%;
+            background-color: #fff;
+            display: inline-block;
+            height: 34px;
+            font-size: 17px;
+            line-height: 30px;
+            float: left;
+            text-transform: uppercase;
+            color: darken(@bs_primary, 25%);
+        }
+
+        .owner-container {
+            //border: solid white 1px;
+            display: inline-block;
+            position: relative;
+            float: left;
+            width: 260px;
+            height: 34px;
+            margin-left: 10px;
+            text-align: right;
+            font-family: Tahoma;
+            font-weight: bold;
+            font-size: 42px;
+            line-height: 28px;
+            margin: 0;
+            .opacity(.5);
+        }
+
+        .current-show-container {
+            //border: solid purple 1px;
+            float:left;
+            width:560px;
+
+            .admin-show-listing {
+                text-transform:uppercase;
+                font-weight:bold;
+                font-size:16px;
+                line-height:17px;
+            }
+        }
+    }
+}
+
+.panel-header-supplement {
+    //border:solid red 2px;
+    position:absolute;
+    top:0;
+    margin-top:10px;
+    right:0;
+}
+
+.mailer-menu .panel-header-supplement {
+    right: 10px;
+
+    .btn {
+        font-weight: bold;
+        width:85px;
+        letter-spacing:-1px;
+        text-shadow:1px 1px 1px #444;
+    }
+
+    .btn-group + .btn-group {
+        margin-left:20px;
+    }
+}
+
+.form-action-supplement {
+    //border:solid red 1px;
+    text-align:right;
+    display:inline-block;
+    position:absolute;
+    bottom:-65px;
+    left:467px;
+}
+
+
+.panel-spacer {
+    height:15px;
+}
+.panel-selector {
+    background-color: lighten(@bs_info, 20%);
+    padding: 5px;
+    border-bottom: solid 2px lighten(@bs_info, 10%);
+
+    #showselector {
+        font-weight: bold;
+
+        TD {
+            padding: 3px 3px;
+        }
+
+        .btn-group .btn {
+            font-weight:bold;
+            letter-spacing:-1px;
+        }
+
+        .sel-typeahead {
+
+            INPUT { /*ie bug fixes*/
+                height: 34px !important;
+                width: 212px !important;
+            }
+        }
+    }
+}
+
+
+
+.panel-actions { /*settings from panel-footer*/
+    background-color: #ddd; // darken(@bs_primary, 5%);
+    padding: 10px;
+    border-bottom: solid 2px #ccc;
+
+    .btn-command {
+        margin-right:12px;
+    }
+}
+
+
+.mailercontent .panel-selector {
+    padding: 15px 15px 0px 15px;
+}
+.mailercontent .panel-actions { 
+    padding: 15px 15px 0px 15px;
+}
+
+
+.panel-footer {
+    background-color:#ddd;// darken(@bs_primary, 5%);
+    padding:15px 10px 25px 10px;    
+    margin-bottom:0;
+    border-top: solid 2px #ccc;
+    margin-top:15px;
+}
+
+#showmgr .panel-body {
+    padding: 15px;
+}
+
+#showmgr .well-outfront .panel-body {
+    padding:0;
+}
+
+/*special rules for controls contained in container listings*/
+#showcreator #acteditor .panel-body {
+    padding:0;
+}
+
+
+
+
+.show-mgmt {
+    
+    .input-group {
+        width: 100%;
+    }
+
+    .input-group-addon {
+        width: 120px;
+        text-align: right;
+    }
+
+    .input-group-addon-sm {
+        width: 60px;
+    }
+
+    .input-group-info {
+        text-align: left;
+        background-color: lighten(@bs_info, 25%);
+        color: #999;
+    }
+
+    .input-group-info-after {
+        width: 48%;
+    }
+
+    .input-group-addon-btn .btn {
+        text-decoration: none;
+    }
+
+    .glyphicon .glyphicon-trash {
+        color: #fff;
+    }
+
+    .dropup-multi {
+        line-height: 20px;
+
+        .btn {
+            position: relative;
+
+            .dropup-txt {
+                position: relative;
+                top: -12px;
+            }
+        }
+    }
+
+    .dropup .dropdown-menu {
+        background-color: lighten(@bs_info, 25%);
+        padding: 20px;
+        bottom: 15px;
+        left: 30px;
+    }
+
+    
+    /*this only slightly helps rendering in IE - but does work pretty well in chrome*/
+    .alpha-searcher .twitter-typeahead {
+        width: 100% !important;
+
+        PRE {
+            height:0;
+            line-height:0;
+        }
+    }
+    .form-group-34-helper {
+        height: 34px !important;
+        //overflow: hidden;
+
+        .input-group-addon {
+            position: relative;
+        }
+
+        .input-group-addon::after {
+            background-color:red !important;
+            content: "";
+            position:absolute;
+            bottom:4px;
+            left:0;
+            width:100%;
+            border-bottom: solid rgb(204, 204, 204) 1px !important;
+        }
+    }
+}
+
+.mailer-menu .input-group-addon-btn .btn,
+.mailer-menu .input-group-addon {
+    width:150px;
+}
+
+
+/*upload control container div to force page to serve correct mime type*/
+.upl-register {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position:absolute;
+
+    INPUT {
+    }
+}

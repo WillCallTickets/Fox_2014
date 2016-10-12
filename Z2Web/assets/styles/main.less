@@ -1,0 +1,595 @@
+﻿
+
+@import "defines.less";//also imports mixins and rem-mixes
+@import "cycle2.less";
+
+a,a:link,a:visited,a:active,a:hover{outline:none; outline-style:none;outline-width:0;}
+
+.btn-pad-wide {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &.btn-lg {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+.btn-bold {
+    font-weight:bold;
+}
+#privacymodal .wctmodal-content,
+#infomodal .wctmodal-content {
+    background-color:#333;
+    color:#eeeeee;
+}
+.thez2inz2 {
+    color:@bs_info;
+}
+
+//bs override - inputs were not getting rounded corners properly
+.input-group INPUT.form-control.radius-helper-left:not(:first-child):not(:last-child){
+   .border-radiuses(0, 0, 4px, 4px);
+}
+.input-group INPUT.form-control.radius-helper-right:not(:first-child):not(:last-child){
+   .border-radiuses(4px, 4px, 0, 0);
+}
+
+//make it big enough to touch on mobile
+.privacy-check {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 20px;
+    position:relative;
+
+    .chk-privacy {
+        width: 1.5em;
+        height: 1.5em;
+        line-height: 20px;
+        position:relative;
+        top:.35em;
+    }
+}
+
+/* fixed top navbar */
+#main-nav {
+
+    .navbar-brand {
+        color:@off_white;
+    }
+
+    .navbar-nav {
+        margin: 0 auto;
+        display: table;
+        table-layout: auto;
+        float: none;
+        width: 100%;
+    }
+
+    .navbar-nav > li {
+        display: table-cell;
+        float: none;
+    }
+
+    .navbar-nav > li:not(:first-child) {
+        text-align: center;
+    }
+}
+
+.modal {
+    color: #444;
+
+    .modal-header {
+        border: none;
+        height: auto;
+    }
+
+    .modal-header {
+        text-align: right;
+        padding: 0;
+        position: relative;
+
+        .btn-close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1024;
+        }
+    }
+
+    .wctmodal-body {
+        top: -15px;
+        padding-top: 0;
+    }
+
+    .modal-footer {
+        border-color: #444;
+    }
+}
+
+
+#mlr-example H2 {
+    text-align:center;
+    color:#ddd;
+    margin-bottom:25px;
+}
+
+/*http://stackoverflow.com/questions/9526970/can-the-twitter-bootstrap-carousel-plugin-fade-in-and-out-on-slide-transition*/
+.carousel.fade
+{
+    opacity: 1;
+
+    .item
+    {
+        -moz-transition: opacity ease-in-out .8s;
+        -o-transition: opacity ease-in-out .8s;
+        -webkit-transition: opacity ease-in-out .8s;
+        transition: opacity ease-in-out .8s;
+        opacity:0;
+        z-index:1;
+        display:block !important;
+        left: 0 !important;
+        top:0;
+        position:absolute;
+        &:first-child{
+            top:auto;
+            position:relative;
+        }
+
+        &.active
+        {
+            opacity: 1;
+            -moz-transition: opacity ease-in-out .8s;
+            -o-transition: opacity ease-in-out .8s;
+            -webkit-transition: opacity ease-in-out .8s;
+            transition: opacity ease-in-out .8s;
+            z-index:2;
+        }
+    }
+}
+
+.view-container {
+    display: block;
+    margin: 20px;
+    height: auto;
+
+    #privacy-pop,
+    #newsprivacy {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .newsletter-inner {
+        H2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .wctmodal-body {
+            margin-bottom: 15px;
+        }
+    }
+
+    .signup-cta {
+        color: #eeeeee;
+        .font-size(3.0);
+        line-height: 1.4em;        
+    }
+
+    &.signup-popup-container {
+
+        .section-header {
+            padding-top: 10px;
+            padding-bottom: 15px;
+        }
+
+        .wctmodal-response {
+            text-align: left;
+        }
+
+        .newsletter-inner {
+            text-align: center;
+            width: auto;
+
+            .cta-background {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                background-color: #444; 
+                .border-radius(5px);
+                padding: 10px;
+                position: relative;
+
+                > P {
+                    text-align: left;
+                }
+            }
+
+            H3 {
+                margin-top: 35px;
+                margin-bottom: 30px;
+            }
+
+            /*"check out our new look" header*/
+            H2 {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .wctmodal-body {
+            margin-bottom: 35px;
+        }
+    }
+
+    &.mailer-example-container {
+        .newsletter-inner {
+            text-align: center;
+            width: auto;
+
+            P {
+                margin-bottom: 5px !important;
+            }
+        }
+    }
+
+    .section-header {
+        padding-bottom: 30px;
+
+        H2 {
+        }
+    }
+
+    .alert-danger {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    P {
+        .font-size(1.5);
+    }
+
+    TABLE.signup-logos {
+        width: 100%;
+        position: relative;
+        top: -25px;
+        left: 10px;
+        margin-bottom: 10px;
+
+        TD {
+            position: relative;
+        }
+
+        .foxlogo DIV {
+            background-image: url("@{resources-img-ui}/foxlogo.png");
+            background-size: 170px 80px; //2.12
+            background-repeat: no-repeat;
+            width: 200px;
+            height: 90px;
+            text-indent: -8000px;
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        .btlogo {
+
+            DIV {
+                background-image: url("@{resources-img-ui}/btlogo.png");
+                background-size: 248px 90px; //2.75
+                background-repeat: no-repeat;
+                width: 250px;
+                height: 90px;
+                text-indent: -8000px;
+                position: relative;
+                left: -20px;
+            }
+        }
+    }
+
+    .newsletter-inner {
+        width: 550px;
+        position: relative;
+        top: -15px;
+
+        #form-inputs {
+            background-color: #444;
+            padding: 10px;
+            padding-bottom: 15px;
+            .border-radius(5px);
+            margin-right: 20px;
+
+            .privacy-check {
+                width: 75%;
+            }
+        }
+
+        .input-group {
+        }
+
+        #form-messages {
+            text-align: left;
+        }
+
+        H3 {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        P {
+            width: 95%;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+    }
+    /*end view table*/
+
+    .wctmodal-body .input-group {
+        width: 85%;
+    }
+}
+
+#jumbo-tron {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .border-radius(10px);
+    background-color: #222;
+    color: #999;
+    padding-top: 25px;
+    padding-left: 0;
+    position: relative;
+    height: 700px;
+    
+    #carousel-tron { /*wrapper for inner jumbo */
+        float: left;
+        padding: 0;
+        width: 100%;
+    }
+
+    .carousel-nav {
+        width: 270px; /*adjusting this may throw off float of main cell*/
+        height: 580px;
+        float: left;
+        padding-left: 10px;
+
+        #logo-tron {
+            position: relative;
+            top: -15px;
+            width: 270px;
+            background-image: url("@{resources-img-ui}/zLogoStack_BtTop.png"); 
+            background-size: 270px 234px; // 1.16 - stacked   (2.77 - sidexside) **use ceiling for sizing
+            background-repeat: no-repeat;
+            width: 270px;
+            height: 250px;
+        }
+        
+        UL.nav {
+            margin-top: 5px;
+            margin-left: 50px;
+            margin-right: 45px;
+            text-align: center;
+
+            LI {
+                .font-size(2.3);
+                margin-bottom: 10px;
+
+                A {
+                    color: #999;
+                    background-color: transparent !important;
+                }
+
+                &:hover {
+                    background-color: #666;
+
+                    A {
+                        color: #999;
+                    }
+                }
+
+                &.active {
+                    color: #ccc;
+                    border: solid #444 1px;
+                    background-color: #333;
+
+                    A {
+                        color: #eee;
+                    }
+                }
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        float: right;
+        padding: 0 20px 0 5px;
+        width: 640px;
+        height: 640px;
+
+        .carousel-inner {
+            border: solid #444 1px;
+            background-color: #161616;
+            color: #d9d9d9;
+            .border-radius(5px);
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            overflow-y: auto; /* this needs to be handled in javascript - test heights of elems and apply overflow - see index.js */
+            //padding:20px;/*not holding together on page/view loads - padding disappears - add padding to view classes*/
+        }
+    }
+}
+    
+.signup-container {
+    margin-top: 30px;
+
+    .main-inner {
+        width: 470px;
+        margin: 0 auto;
+    }
+
+    .view-header {
+        H1 {
+            text-align: center;
+        }
+
+        TABLE.signup-logos {
+            border: solid red 1px !important;
+            width: 100%;
+
+            TD {
+                position: relative;
+            }
+
+            .foxlogo DIV {
+                background-image: url("@{resources-img-ui}/foxlogo.png");
+                background-size: 170px 80px; //2.12
+                background-repeat: no-repeat;
+                width: 200px;
+                height: 100px;
+                text-indent: -8000px;
+                margin-left: 30px;
+                margin-top: 15px;
+            }
+
+            .btlogo {
+                DIV {
+                    background-image: url("@{resources-img-ui}/btlogo.png");
+                    background-size: 248px 90px; //2.75
+                    background-repeat: no-repeat;
+                    width: 250px;
+                    height: 100px;
+                    text-indent: -8000px;
+                    position: relative;
+                    left: -30px;
+                }
+            }
+        }
+    }
+
+    .view-body {
+        width: 420px;
+        margin: 0 auto;
+        color: #999;
+        text-align: center;
+
+        P {
+            line-height: 20px;
+        }
+    }
+}
+    
+/*content that appears below the top carousel*/
+#main-content {
+    margin-bottom: 100px;
+    position: relative;
+    
+    #venue-lineup, #mlr-example {
+        position: absolute;
+        width:100%;
+    }
+
+    .venue-container {
+        position: relative;
+        text-align: center;
+        border: solid #333 1px;
+        padding-top: 30px;
+        padding-bottom: 40px; /*extra added due to floats not sizing container correctly*/
+        .border-radius(5px);
+        background-color: #222;
+        width: 100%;
+
+        A.logo-link {
+            display: block;
+            width: 80%;
+            margin: 0 auto 30px auto;
+        }
+
+        .venue-logo {
+            background-repeat: no-repeat;
+            background-position-x: center;
+            display: block;
+            width: 320px;
+            height: 120px;
+            margin: 0 auto 0 auto;
+            position: relative;
+        }
+
+        #logo-fox {
+            background-image: url("@{resources-img-ui}/foxlogo.png");
+            background-size: 231px 109px;
+        }
+
+        #logo-bt {
+            background-image: url("@{resources-img-ui}/btlogo.png");
+            background-size: 300px 109px;
+        }
+    }
+
+    #fox-content {
+    }
+
+    #bt-content {
+        
+    }
+
+    .list-shows {
+        width: 90%;
+        margin: 0 auto;
+        text-align: left;
+        position: relative;        
+
+        LI {
+            clear: both;
+            position: relative;
+            //float:left;//nope!
+        }
+
+        A {
+            display: block;
+            padding: 0 10px 0 10px;
+            .font-size(1.5);
+            line-height: 1.2em;
+            margin-bottom: 10px;
+            color: #999;
+            text-transform: uppercase;
+            position: relative;
+            float: left;
+            width: 100%;
+        }
+
+        LI:nth-child(odd) A {
+            background-color: #2e2e2e;
+        }
+
+        A:hover {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        LI SPAN {
+        }
+
+        SPAN.date {
+            display: inline-block;
+            width: 13%;
+            float: left;
+        }
+
+        SPAN.billing {
+            display: inline-block;
+            width: 85%;
+            float: left;
+        }
+    }
+}
+
+.contact-listing {
+    LI A {
+        font-weight: bold;
+        font-size: (1.4em);
+        line-height:2em;
+
+        &:hover {
+            color:@bs_info;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+
+
+IF (@tMailerTemplateId = 0) BEGIN 
+        IF NOT EXISTS (SELECT * FROM [MailerTemplate] WHERE [Name] = 'Blank Template') BEGIN 
+            INSERT [MailerTemplate] ([ApplicationId], [Name], [Description], [Style], [Header], [Footer]) VALUES (@appId, 'Blank Template', '', '', '' ); 
+        END 
+    
+        SELECT @tMailerTemplateId = [Id] FROM [MailerTemplate] WHERE [Name] = 'Blank Template'; 
+
+    END
+

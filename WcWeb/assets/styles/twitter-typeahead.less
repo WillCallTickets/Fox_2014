@@ -1,0 +1,52 @@
+﻿
+/* original https://github.com/jharding/typeahead.js-bootstrap.css/blob/master/typeahead.js-bootstrap.css */
+
+.twitter-typeahead {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    INPUT {
+        width: 100%;
+        height: 100% !important;
+        .border-radius(4px);
+        .placeholder(darken(@blue_highlight,40%), bold, oblique, ~'none');
+        
+        #mastheader & {
+            border: solid lighten(@blue_highlight,1%) 4px;
+            .box-shadow(0 0 8px #333); 
+            margin-top:-4px;
+            .border-radius(2px);
+        }
+    }
+
+    INPUT.tt-hint {
+        background-color: transparent;
+        color: lighten(@blue_border,20%);
+        background-color: rgba(255,255,255, .95) !important;
+    }
+
+    .tt-dropdown-menu {
+        background-color: #222;
+        .opacity(.9);
+        .border-radius;
+        text-align: left;
+    }
+
+    .tt-suggestion {
+        display: block;
+        padding: .22em 1.45em; 
+        color: @white;
+        cursor: pointer;
+    }
+
+    .tt-suggestion:nth-child(even) {
+        background-color: #555;
+        .opacity(.9);
+    }
+
+    .tt-suggestion.tt-cursor {
+        color: #ffffff;
+        background-color: @blue_border;
+    }
+}

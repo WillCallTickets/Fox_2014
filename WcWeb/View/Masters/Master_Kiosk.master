@@ -1,0 +1,58 @@
+<%@ Master Language="C#" AutoEventWireup="false" CodeFile="Master_Kiosk.master.cs" Inherits="wctMain.Masters.Master_Kiosk" %>
+
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head id="Head1" runat="server" prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Shows</title>
+
+    <link href='//fonts.googleapis.com/css?family=Exo:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/styles/bootstrap-v3.2.0.min.css" media="screen">
+    
+    <link rel="stylesheet" href="/assets/styles/kioskMain.less">
+    
+    <script src="/assets/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/assets/javascripts/wctJsLibrary.js"></script>   
+    
+    <!-- 4hours * 60mins *60secs = 14400 = cache time - but we should refresh every 15mins  15*60 = 900? -->
+    <meta id="metaRefresh" runat="server" http-equiv="refresh" content="900; URL=/kiosk"> 
+
+    <!-- allow the page to be added to the homescreen in full screen mode -->
+    <!-- http://www.html5rocks.com/en/mobile/fullscreen/ -->
+    <meta name="mobile-web-app-capable" content="yes">
+    
+</head>
+<body>
+            
+    <asp:ContentPlaceHolder ID="RotatedContent" runat="server">
+    </asp:ContentPlaceHolder>
+      
+    <!-- dynamic page content -->
+    <asp:ContentPlaceHolder ID="JsonObjects" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/assets/javascripts/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/bootstrap-v3.2.0.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/respond_1.1.0.js"></script>
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/knockout-v3.0.0.js"></script>
+
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.backstretch-2.0.4.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.cycle2-v2.1.1.min.js"></script>
+
+    <script type="text/javascript" src="/assets/javascripts/kiosk.js"></script>
+
+</body>
+</html>

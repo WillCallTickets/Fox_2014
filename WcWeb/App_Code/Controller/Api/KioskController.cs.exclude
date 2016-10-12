@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Data;
+using System.Web.Mvc;
+using System.IO;
+using System.Text;
+
+using System.Runtime.Serialization;
+
+using Wcss;
+using DDay.iCal;
+using DDay.iCal.Serialization.iCalendar;
+
+namespace wctMain.Controller.Api
+{
+    public class KioskController : ApiController
+    {
+        // GET api/<controller>/<query>
+        //public HttpResponseMessage Get(string calItemLink)
+        //{
+
+        public HttpResponseMessage Get()
+        {
+            var responseNotFound = Request.CreateResponse(HttpStatusCode.NotFound);
+            responseNotFound.Headers.Location = new Uri(string.Format("{0}://{1}/Error.aspx",
+                this.Request.RequestUri.Scheme, this.Request.RequestUri.Host));
+            return responseNotFound;
+        }
+
+        public IHttpActionResult Index()
+        {
+            return 
+        }
+    }
+}
